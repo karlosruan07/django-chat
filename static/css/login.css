@@ -16,6 +16,19 @@ body {
     font-family: sans-serif;
 }
 
+.signup_container {
+    min-height: 600px;
+    width: 350px;
+    background-color: var(--white);
+    box-sizing: border-box;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .login {
     height: 100vh;
     background: var(--background-linear);
