@@ -1,0 +1,27 @@
+{% extends 'accounts/main-login.html' %}
+
+{% block login-signup %}
+    <main class="login">
+
+        <div class="login_container">
+
+            <h1 class="login_title">Django Chat</h1>
+
+            <form class="login_form" action="" method="POST">
+
+                <input class="login_input" type="text" name="Username" id="Username" placeholder="Login" required>
+                <span class="login_input_border"></span>
+
+                <input class="login_input" type="password" name="Password" id="Password" placeholder="Senha" required>
+                <span class="login_input_border"></span>
+
+                <button class="login_submit" type="submit" name="Submit">Acessar</button>           
+                
+            </form>
+
+            <a href="{% url 'signup' %}" class="signup">Don't have an account? Sign Up</a>
+
+        </div>
+
+    </main>
+{% endblock %}

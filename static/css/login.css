@@ -1,0 +1,110 @@
+:root {
+    --input-linear: linear-gradient(120deg, #058516, #58cc7d);
+    --button-linear: linear-gradient(120deg, #058516, #58cc7d);
+    --background-linear: linear-gradient(120deg, #d2d2d2, #f0f0f0);
+    --white: white;
+    --dark-gray: #303030;
+    --gray: #929292;
+    --light-gray: #cfcfcf;
+    --box-shadow: #ccc;
+    --border-height: 1px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.login {
+    height: 100vh;
+    background: var(--background-linear);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_container {
+    min-height: 400px;
+    width: 300px;
+    background-color: var(--white);
+    box-sizing: border-box;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_title {
+    margin-bottom: 32px;
+    color: var(--dark-gray);
+}
+
+.login_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_input {
+    color: var(--dark-gray);
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 8px;
+    border: unset;
+    outline: none;
+}
+
+.login_input_border {
+    height: var(--border-height);
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: var(--light-gray);
+    transition: .3s ease-in-out;
+}
+
+.login_input_border::after {
+    content: '';
+    display: block;
+    height: var(--border-height);
+    width: 0;
+    margin-bottom: 16px;
+    background: var(--input-linear);
+    transition: .3s ease-in-out;
+}
+
+.login_input:focus + .login_input_border::after {
+    width: 100%;
+}
+
+.login_submit {
+    height: 48px;
+    width: 100%;
+    outline: none;
+    background: var(--button-linear);
+    background-size: 200%;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: bold;
+    border: unset;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.login_submit:hover {
+    background-position: right;
+}
+
+.signup {
+    font-size: 12px;
+    color: var(--gray);
+    text-decoration: none;
+}
