@@ -144,5 +144,6 @@ MEDIA_URL = "/uploads/"  # irá criar as url para os arquivos.
 
 AUTH_USER_MODEL = 'accounts.User'#modelo de autenticação customizado (NomeDoApp.NomeDaClasse)
 
-LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'

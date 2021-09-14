@@ -1,4 +1,4 @@
-from django.db import models
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
@@ -10,8 +10,6 @@ from django.views import generic
 def home(request):
     return render(request, 'accounts/home-content.html')
 
-def login(request):
-    return render(request, 'accounts/login-content.html')
 
 class SignupView(generic.CreateView):
     model = User
