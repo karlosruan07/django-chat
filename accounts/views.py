@@ -1,7 +1,11 @@
+from django.db import models
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import reverse_lazy
 
-# Create your views here.
+from .models import User
+from .forms import FormularioAdmin
+
+from django.views import generic
 
 def home(request):
     return render(request, 'accounts/home-content.html')
@@ -9,5 +13,8 @@ def home(request):
 def login(request):
     return render(request, 'accounts/login-content.html')
 
-def signup(request):
-    return render(request, 'accounts/signup-content.html')
+class SignupView(generic.CreateView):
+    model = User
+    template_name = 'accounts/signup-content.html'
+    form_class = FormularioAdmin
+    success_url = reverse_lazy('login')

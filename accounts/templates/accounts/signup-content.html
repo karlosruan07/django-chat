@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
     <main class="login">
 
@@ -9,31 +11,47 @@
 
             <form class="login_form" action="" method="POST">
 
-                <input class="login_input" type="text" name="First_name" id="First_name" placeholder="Primeiro nome" required>
-                <span class="login_input_border"></span>
+                {% csrf_token %}
+                
+                <div>
+                    <i class="bi bi-person-circle"></i>
+                    <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
 
-                <input class="login_input" type="text" name="Last_name" id="Last_name" placeholder="Ultimo nome" required>
-                <span class="login_input_border"></span>
+                <div>
+                    <i class="bi bi-envelope-fill"></i>
+                    <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
 
-                <input class="login_input" type="text" name="Username" id="Username" placeholder="Username" required>
-                <span class="login_input_border"></span>
+                <div>
+                    <i class="bi bi-phone-fill"></i>
+                    <label for="{{ form.phone.auto_id }}">{{ form.phone.label }}</label>
+                    {{ form.phone }}
+                    {{ form.phone.errors }}
+                </div>
 
-                <input class="login_input" type="email" name="Email" id="Email" placeholder="E-mail" required>
-                <span class="login_input_border"></span>
+                <div>
+                    <i class="bi bi-key-fill"></i>
+                    {{ form.password1.errors }}
+                    <label for="{{ form.password1.auto_id }}">Senha</label>
+                    {{ form.password1 }}
+                </div>
 
-                <input class="login_input" type="tel" name="Phone" id="Phone" placeholder="(99) 9 9999-9999" required>
-                <span class="login_input_border"></span>
-
-                <input class="login_input" type="password" name="Password" id="Password" placeholder="Senha" required>
-                <span class="login_input_border"></span>
-
-                <input class="login_input" type="password" name="Password_conf" id="Password_conf" placeholder="Confirme sua senha" required>
-                <span class="login_input_border"></span>
+                <div>
+                    <i class="bi bi-key-fill"></i>
+                    {{ form.password2.errors }}
+                    <label for="{{ form.password2.auto_id }}">Confirmação de senha</label>
+                    {{ form.password2 }}
+                </div>
 
                 <button class="login_submit" type="submit" name="Submit">Cadastrar</button>           
                 
             </form>
-
+            
             <a href="{% url 'login' %}" class="signup">Já possui uma conta? Login</a>
 
         </div>

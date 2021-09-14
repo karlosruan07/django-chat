@@ -121,3 +121,7 @@ body {
     color: var(--gray);
     text-decoration: none;
 }
+
+.errorlist{
+    color: red;
+}
