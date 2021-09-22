@@ -1,41 +1,45 @@
-
 {% extends 'base.html' %}
 
 {% block title %} Login {% endblock %}
 
 {% block content %}
-    <div class="login">
+<div class="login">
 
-        <div class="login_container">
+    <div class="login_container">
 
-            <h1 class="login_title">Django Chat</h1>
+        <h1 class="login_title">Django Chat</h1>
 
-            <form class="login_form" action="" method="POST">
+        <form class="login_form" action="" method="POST">
 
-                {% csrf_token %}
+            {% csrf_token %}
 
-                <div>
-                    <i class="bi bi-person-circle"></i>
-                    <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
-                    {{ form.username }}
-                    {{ form.username.errors }}
-                </div>
+            {% for erro in form.non_field_errors %}
+            <div style="background-color: #cfcfcf;">
+                <div style="text-align: justify; color: red;">{{ erro }}<br><br> </div>
+            </div>
+            {% endfor %}
 
-                <div>
-                    <i class="bi bi-person-circle"></i>
-                    <label for="{{ form.username.auto_id }}">{{ form.password.label }}</label>
-                    {{ form.password }}
-                    {{ form.password.errors }}
-                </div>
+            <div>
+                <i class="bi bi-person-circle"></i>
+                <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
 
-                <button class="login_submit" type="submit" name="Submit">Acessar</button>           
-                
-            </form>
+            <div>
+                <i class="bi bi-key-fill"></i>
+                <label for="{{ form.username.auto_id }}">{{ form.password.label }}</label>
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
 
-            <a href="{% url 'signup' %}" class="signup">Não possui uma conta? Cadastre-se</a>
+            <button class="login_submit" type="submit" name="Submit">Acessar</button>
 
-        </div>
+        </form>
+
+        <a href="{% url 'signup' %}" class="signup">Não possui uma conta? Cadastre-se</a>
 
     </div>
-{% endblock %}
 
+</div>
+{% endblock %}
