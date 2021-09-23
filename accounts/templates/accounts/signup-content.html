@@ -9,52 +9,61 @@
 
         <div class="signup_container">
 
-            <h1 class="login_title">Cadastro</h1>
+            {% if request.user.is_authenticated %}
+            
+                <h3 style="text-align: center; margin-top: 50%;" >Você já está cadastrado, para fazer um novo cadastro <a href="{% url 'logout' %}">faça logout.</a> </h3>
+                    <a href="{% url 'logout' %}"><button class="login_submit">Logout</button></a>
+            
+            {% else %}
 
-            <form class="login_form" action="" method="POST">
+                <h1 class="login_title">Cadastro</h1>
 
-                {% csrf_token %}
-                
-                <div>
-                    <i class="bi bi-person-circle"></i>
-                    <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
-                    {{ form.username }}
-                    {{ form.username.errors }}
-                </div>
+                <form class="login_form" action="" method="POST">
 
-                <div>
-                    <i class="bi bi-envelope-fill"></i>
-                    <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
-                    {{ form.email }}
-                    {{ form.email.errors }}
-                </div>
+                    {% csrf_token %}
+                    
+                    <div>
+                        <i class="bi bi-person-circle"></i>
+                        <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
 
-                <div>
-                    <i class="bi bi-phone-fill"></i>
-                    <label for="{{ form.phone.auto_id }}">{{ form.phone.label }}</label>
-                    {{ form.phone }}
-                    {{ form.phone.errors }}
-                </div>
+                    <div>
+                        <i class="bi bi-envelope-fill"></i>
+                        <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
 
-                <div>
-                    <i class="bi bi-key-fill"></i>
-                    {{ form.password1.errors }}
-                    <label for="{{ form.password1.auto_id }}">Senha</label>
-                    {{ form.password1 }}
-                </div>
+                    <div>
+                        <i class="bi bi-phone-fill"></i>
+                        <label for="{{ form.phone.auto_id }}">{{ form.phone.label }}</label>
+                        {{ form.phone }}
+                        {{ form.phone.errors }}
+                    </div>
 
-                <div>
-                    <i class="bi bi-key-fill"></i>
-                    {{ form.password2.errors }}
-                    <label for="{{ form.password2.auto_id }}">Confirmação de senha</label>
-                    {{ form.password2 }}
-                </div>
+                    <div>
+                        <i class="bi bi-key-fill"></i>
+                        {{ form.password1.errors }}
+                        <label for="{{ form.password1.auto_id }}">Senha</label>
+                        {{ form.password1 }}
+                    </div>
+
+                    <div>
+                        <i class="bi bi-key-fill"></i>
+                        {{ form.password2.errors }}
+                        <label for="{{ form.password2.auto_id }}">Confirmação de senha</label>
+                        {{ form.password2 }}
+                    </div>
 
                 <button class="login_submit" type="submit" name="Submit">Cadastrar</button>           
                 
             </form>
-            
+    
             <a href="{% url 'login' %}" class="signup">Já possui uma conta? Login</a>
+
+            {% endif %}
 
         </div>
 
