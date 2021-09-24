@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     #APPs
     'accounts',
+    'chat',
 
 ]
 

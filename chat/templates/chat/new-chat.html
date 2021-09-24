@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+    <main class="login">
+
+        <div class="signup_container">
+
+                <h1 class="login_title">Cadastro</h1>
+
+                <form class="login_form" action="" method="POST">
+
+                    {% csrf_token %}
+                    
+                    <div>
+                        <i class="bi bi-person-circle"></i>
+                        <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+
+                    <div>
+                        <i class="bi bi-envelope-fill"></i>
+                        <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div>
+                        <i class="bi bi-phone-fill"></i>
+                        <label for="{{ form.phone.auto_id }}">{{ form.phone.label }}</label>
+                        {{ form.phone }}
+                        {{ form.phone.errors }}
+                    </div>
+
+                    <div>
+                        <i class="bi bi-key-fill"></i>
+                        {{ form.password1.errors }}
+                        <label for="{{ form.password1.auto_id }}">Senha</label>
+                        {{ form.password1 }}
+                    </div>
+
+                    <div>
+                        <i class="bi bi-key-fill"></i>
+                        {{ form.password2.errors }}
+                        <label for="{{ form.password2.auto_id }}">Confirmação de senha</label>
+                        {{ form.password2 }}
+                    </div>
+
+                <button class="login_submit" type="submit" name="Submit">Cadastrar</button>           
+                
+            </form>
+    
+            <a href="#" class="signup">Já possui uma conta? Login</a>
+
+        </div>
+
+    </main>
+{% endblock %}
