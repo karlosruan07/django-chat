@@ -2,61 +2,45 @@
 
 {% load static %}
 
-{% block title %} Signup {% endblock %}
+{% block title %} Novo Chat {% endblock %}
 
 {% block content %}
-    <main class="login">
+<main class="container">
 
-        <div class="signup_container">
-
-                <h1 class="login_title">Cadastro</h1>
-
-                <form class="login_form" action="" method="POST">
-
-                    {% csrf_token %}
-                    
-                    <div>
-                        <i class="bi bi-person-circle"></i>
-                        <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
-                        {{ form.username }}
-                        {{ form.username.errors }}
-                    </div>
-
-                    <div>
-                        <i class="bi bi-envelope-fill"></i>
-                        <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
-                        {{ form.email }}
-                        {{ form.email.errors }}
-                    </div>
-
-                    <div>
-                        <i class="bi bi-phone-fill"></i>
-                        <label for="{{ form.phone.auto_id }}">{{ form.phone.label }}</label>
-                        {{ form.phone }}
-                        {{ form.phone.errors }}
-                    </div>
-
-                    <div>
-                        <i class="bi bi-key-fill"></i>
-                        {{ form.password1.errors }}
-                        <label for="{{ form.password1.auto_id }}">Senha</label>
-                        {{ form.password1 }}
-                    </div>
-
-                    <div>
-                        <i class="bi bi-key-fill"></i>
-                        {{ form.password2.errors }}
-                        <label for="{{ form.password2.auto_id }}">Confirmação de senha</label>
-                        {{ form.password2 }}
-                    </div>
-
-                <button class="login_submit" type="submit" name="Submit">Cadastrar</button>           
-                
-            </form>
+    <div style="text-align: center; margin-top: 10%;">
+        <h1 class="login_title">Novo Chat</h1>
     
-            <a href="#" class="signup">Já possui uma conta? Login</a>
+        <form method="POST">
 
-        </div>
+            {% csrf_token %}
 
-    </main>
+            <div class="mb-3">
+                <label for="{{ form.sender.auto_id }}" class="form-label">{{ form.sender.label }}</label>
+                {{ form.sender }}
+                <div id="{{ form.sender.auto_id }}" class="form-text">{{ form.sender.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.recipient.auto_id }}" class="form-label">{{ form.recipient.label }}</label>
+                {{ form.recipient }}
+                <div id="{{ form.recipient.auto_id }}" class="form-text">{{ form.recipient.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.subject.auto_id }}" class="form-label">{{ form.subject.label }}</label>
+                {{ form.subject }}
+                <div id="{{ form.subject.auto_id }}" class="form-text">{{ form.subject.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                {{ form.message }}
+                <br><label for="{{ form.message.auto_id }}">{{ form.message.label }}</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+    </div>
+
+</main>
 {% endblock %}
